@@ -2,7 +2,6 @@ from estrategia1 import Encuesta, Tema, Pregunta, Encuestado
 
 def leer_archivo_txt(ruta):
     with open(ruta, 'r', encoding='utf-8') as f:
-        # NO filtramos líneas en blanco para poder separar temas
         lineas = [line.rstrip("\n") for line in f]
 
     encuesta = Encuesta()
@@ -50,7 +49,6 @@ def leer_archivo_txt(ruta):
         tema.ordenar_preguntas()
         encuesta.agregar_tema(tema)
         tema_num += 1
-        # idx avanza al siguiente bloque de tema (línea en blanco ya manejada arriba)
 
     encuesta.ordenar_temas()
     return encuesta
